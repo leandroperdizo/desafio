@@ -26,7 +26,8 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public Cliente save(Cliente cliente) {
 
-		return Optional.ofNullable(cliente).filter(param -> !clienteRepository.existsById(cliente.getId()))
+		return Optional.ofNullable(cliente)
+				.filter(param -> clienteRepository.verificaDuplicidade(cliente.getCnpj()) == 0)
 				.map(param -> clienteRepository.save(cliente)).orElseGet(() -> new Cliente());
 	}
 

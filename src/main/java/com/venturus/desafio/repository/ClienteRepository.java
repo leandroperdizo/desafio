@@ -10,10 +10,12 @@ import org.springframework.stereotype.Repository;
 import com.venturus.desafio.entity.Cliente;
 
 @Repository
-public interface ClienteRepository extends CrudRepository<Cliente, Integer>{
+public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 
-	@Query("FROM Cliente c "
-			+ "WHERE nome like '%:nome%'")
+	@Query("FROM Cliente c " + "WHERE nome like '%:nome%'")
 	Page<Cliente> findAll(@Param("nome") String nome, Pageable Pageable);
-	
+
+	@Query("SELECT count(c.id) FROM Cliente c " + "WHERE cnpj = :cnpj")
+	Integer verificaDuplicidade(@Param("cnpj") String cnpj);
+
 }

@@ -1,11 +1,15 @@
 package com.venturus.desafio.entity;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "contrato")
 public class Contrato implements Serializable {
 
 	/**
@@ -14,21 +18,20 @@ public class Contrato implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Integer id;
 
-	@Column(name = "numero", nullable = false)
+	@Column(name = "numero")
 	private Long numero;
 
-	@Column(name = "vigenciaMes", nullable = false)
+	@Column(name = "vigenciaMes")
 	private Integer vigenciaMes;
 
-	@Column(name = "cliente", nullable = false)
-	@OneToOne
+	@Column(name = "cliente")
 	private Cliente cliente;
 
-	@Column(name = "servico", nullable = false)
-	@OneToOne
+	@Column(name = "servico")
 	private Servico servico;
 
 	public Integer getId() {

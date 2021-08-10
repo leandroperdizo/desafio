@@ -9,12 +9,12 @@ import com.venturus.desafio.entity.Cliente;
 @Component
 public interface ClienteService {
 
-	public Page<Cliente> findAll(String nome, Integer page, Integer size); 
-	
-	public Cliente save(Cliente cliente); 
-	
-	public Optional<Cliente> update(Cliente cliente); 
-	
-	public void delete(Cliente cliente); 	
-	
+	public Page<Cliente> findAll(String nome, Integer page, Integer size);
+
+	public Cliente save(Cliente cliente);
+
+	public Optional<Cliente> update(Cliente cliente);
+
+	public void delete(Cliente cliente);
+
 }

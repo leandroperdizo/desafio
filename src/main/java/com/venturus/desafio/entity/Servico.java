@@ -4,9 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "servico")
 public class Servico implements Serializable{
 
 	/**
@@ -15,10 +19,11 @@ public class Servico implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Integer id;
 
-	@Column(name = "nome", nullable = false)
+	@Column(name = "nome")
 	private String nome;
 
 	public Integer getId() {
