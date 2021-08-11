@@ -25,37 +25,33 @@ public class ContratoController {
 	ContratoService contratoService;
 
 	/**
-	 * Find all clients
+	 * Find all contracts
 	 * 
 	 * @param id
-	 * @param name
-	 * @param cpf
+	 * @param numero
+	 * @param vigenciaMes
+	 * @param cliente
+	 * @param servico
 	 * @param page
 	 * @param size
 	 * @return
 	 */
-	@ApiOperation("Find all clients")
+	@ApiOperation("Find all contracts")
 	@GetMapping
 	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = false) String nome,
 			@RequestParam(value = "page", required = true) Integer page,
 			@RequestParam(value = "size", required = true) Integer size) {
 
-		/*
-		 * Cliente cliente = Optional.of(new Cliente()) .map(param -> {
-		 * param.setNome(nome); param.setCpf(cpf); param.getDataNascimento(); return
-		 * param; }).orElseThrow();
-		 */
-
 		return new ResponseEntity<Page<Contrato>>(contratoService.findAll(nome, page, size), HttpStatus.OK);
 	}
 
 	/**
-	 * Create client
+	 * Create contract
 	 * 
-	 * @param cliente
+	 * @param contract
 	 * @return
 	 */
-	@ApiOperation("Create client")
+	@ApiOperation("Create contract")
 	@PostMapping
 	public ResponseEntity<?> save(@RequestBody Contrato contrato) {
 
@@ -64,12 +60,12 @@ public class ContratoController {
 	}
 
 	/**
-	 * Update client
+	 * Update contract
 	 * 
-	 * @param cliente
+	 * @param contract
 	 * @return
 	 */
-	@ApiOperation("Update client")
+	@ApiOperation("Update contract")
 	@PutMapping
 	public ResponseEntity<Optional<Contrato>> update(@RequestBody Contrato contrato) {
 
@@ -78,11 +74,11 @@ public class ContratoController {
 	}
 
 	/**
-	 * Delete client
+	 * Delete contract
 	 * 
-	 * @param cliente
+	 * @param contract
 	 */
-	@ApiOperation("Delete client")
+	@ApiOperation("Delete contract")
 	@DeleteMapping
 	public void delete(@RequestBody Contrato contrato) {
 

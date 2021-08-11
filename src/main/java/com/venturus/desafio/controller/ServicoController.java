@@ -25,27 +25,18 @@ public class ServicoController {
 	ServicoService servicoService;
 
 	/**
-	 * Find all clients 
+	 * Find all services 
 	 * @param id
-	 * @param name
-	 * @param cpf
+	 * @param nome
 	 * @param page
 	 * @param size
 	 * @return
 	 */
-	@ApiOperation("Find all clients")
+	@ApiOperation("Find all services")
 	@GetMapping
 	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = false) String nome, 
 			@RequestParam (value = "page", required = true) Integer page, 
 			@RequestParam(value = "size", required = true) Integer size) {
-
-		/*Cliente cliente = Optional.of(new Cliente())
-				.map(param -> {
-					param.setNome(nome);
-					param.setCpf(cpf);
-					param.getDataNascimento(); 
-			return param;
-		}).orElseThrow();*/
 
 		return new ResponseEntity<Page<Servico>>(servicoService.findAll(nome, page, size), HttpStatus.OK);
 	}
@@ -66,11 +57,11 @@ public class ServicoController {
 	}
 
 	/**
-	 * Update client 
-	 * @param cliente
+	 * Update service 
+	 * @param service 
 	 * @return
 	 */
-	@ApiOperation("Update client")
+	@ApiOperation("Update service")
 	@PutMapping
 	public ResponseEntity<Optional<Servico>> update(@RequestBody Servico servico) {
 
@@ -79,10 +70,10 @@ public class ServicoController {
 	}
 
 	/**
-	 * Delete client 
-	 * @param cliente
+	 * Delete service  
+	 * @param service 
 	 */
-	@ApiOperation("Delete client")
+	@ApiOperation("Delete service")
 	@DeleteMapping
 	public void delete(@RequestBody Servico servico) {
 		

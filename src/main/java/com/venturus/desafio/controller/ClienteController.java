@@ -1,5 +1,8 @@
 package com.venturus.desafio.controller;
 
+import com.venturus.desafio.entity.Cliente;
+import com.venturus.desafio.service.ClienteService;
+import io.swagger.annotations.ApiOperation;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.venturus.desafio.entity.Cliente;
-import com.venturus.desafio.service.ClienteService;
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("cliente")
@@ -28,7 +28,7 @@ public class ClienteController {
 	 * Find all clients
 	 * 
 	 * @param id
-	 * @param name
+	 * @param nome
 	 * @param cpf
 	 * @param page
 	 * @param size
@@ -39,12 +39,6 @@ public class ClienteController {
 	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = false) String nome,
 			@RequestParam(value = "page", required = true) Integer page,
 			@RequestParam(value = "size", required = true) Integer size) {
-
-		/*
-		 * Cliente cliente = Optional.of(new Cliente()) .map(param -> {
-		 * param.setNome(nome); param.setCpf(cpf); param.getDataNascimento(); return
-		 * param; }).orElseThrow();
-		 */
 
 		return new ResponseEntity<Page<Cliente>>(clienteService.findAll(nome, page, size), HttpStatus.OK);
 	}
