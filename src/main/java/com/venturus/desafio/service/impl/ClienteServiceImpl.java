@@ -1,14 +1,14 @@
 package com.venturus.desafio.service.impl;
 
+import com.venturus.desafio.entity.Cliente;
+import com.venturus.desafio.repository.ClienteRepository;
+import com.venturus.desafio.service.ClienteService;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import com.venturus.desafio.entity.Cliente;
-import com.venturus.desafio.repository.ClienteRepository;
-import com.venturus.desafio.service.ClienteService;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {

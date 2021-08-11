@@ -1,5 +1,8 @@
 package com.venturus.desafio.controller;
 
+import com.venturus.desafio.entity.Contrato;
+import com.venturus.desafio.service.ContratoService;
+import io.swagger.annotations.ApiOperation;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.venturus.desafio.entity.Contrato;
-import com.venturus.desafio.service.ContratoService;
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("contrato")
@@ -38,11 +38,11 @@ public class ContratoController {
 	 */
 	@ApiOperation("Find all contracts")
 	@GetMapping
-	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = false) String nome,
+	public ResponseEntity<?> findAll(@RequestParam(value = "cnpj", required = false) String cnpj,
 			@RequestParam(value = "page", required = true) Integer page,
 			@RequestParam(value = "size", required = true) Integer size) {
 
-		return new ResponseEntity<Page<Contrato>>(contratoService.findAll(nome, page, size), HttpStatus.OK);
+		return new ResponseEntity<Page<Contrato>>(contratoService.findAll(cnpj, page, size), HttpStatus.OK);
 	}
 
 	/**

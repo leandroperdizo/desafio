@@ -28,11 +28,11 @@ public class Contrato implements Serializable {
 	@Column(name = "vigenciaMes")
 	private Integer vigenciaMes;
 
-	@Column(name = "cliente")
-	private Cliente cliente;
+	@Column(name = "idCliente")
+	private Integer idCliente;
 
-	@Column(name = "servico")
-	private Servico servico;
+	@Column(name = "idServico")
+	private Integer idServico;
 
 	public Integer getId() {
 		return id;
@@ -58,20 +58,20 @@ public class Contrato implements Serializable {
 		this.vigenciaMes = vigenciaMes;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Integer getIdCliente() {
+		return idCliente;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
 	}
 
-	public Servico getServico() {
-		return servico;
+	public Integer getIdServico() {
+		return idServico;
 	}
 
-	public void setServico(Servico servico) {
-		this.servico = servico;
+	public void setIdServico(Integer idServico) {
+		this.idServico = idServico;
 	}
 
 }

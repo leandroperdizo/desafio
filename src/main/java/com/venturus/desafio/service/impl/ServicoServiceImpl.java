@@ -1,14 +1,14 @@
 package com.venturus.desafio.service.impl;
 
+import com.venturus.desafio.entity.Servico;
+import com.venturus.desafio.repository.ServicoRepository;
+import com.venturus.desafio.service.ServicoService;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import com.venturus.desafio.entity.Servico;
-import com.venturus.desafio.repository.ServicoRepository;
-import com.venturus.desafio.service.ServicoService;
 
 @Service
 public class ServicoServiceImpl implements ServicoService {
@@ -26,7 +26,7 @@ public class ServicoServiceImpl implements ServicoService {
 	@Override
 	public Servico save(Servico servico) {
 
-		return Optional.ofNullable(servico).filter(param -> !servicoRepository.existsById(servico.getId()))
+		return Optional.ofNullable(servico).filter(param -> servicoRepository.verificaDuplicidade(servico.getNome()) == 0)
 				.map(param -> servicoRepository.save(servico)).orElseGet(() -> new Servico());
 	}
 

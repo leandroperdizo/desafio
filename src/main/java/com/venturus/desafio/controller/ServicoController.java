@@ -1,5 +1,8 @@
 package com.venturus.desafio.controller;
 
+import com.venturus.desafio.entity.Servico;
+import com.venturus.desafio.service.ServicoService;
+import io.swagger.annotations.ApiOperation;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.venturus.desafio.entity.Servico;
-import com.venturus.desafio.service.ServicoService;
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("servico")
