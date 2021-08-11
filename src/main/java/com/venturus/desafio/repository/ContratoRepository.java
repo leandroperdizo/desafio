@@ -15,6 +15,6 @@ public interface ContratoRepository extends CrudRepository<Contrato, Integer>{
 
 	@Query("FROM Contrato c " 
 			+ "WHERE nome = :cnpj")
-	Page<Cliente> findAll(@Param("cnpj") String cnpj, Pageable Pageable);
+	Page<Contrato> findAll(@Param("cnpj") String cnpj, Pageable Pageable);
 	
 }

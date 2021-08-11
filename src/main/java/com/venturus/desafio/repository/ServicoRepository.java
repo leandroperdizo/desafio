@@ -15,6 +15,6 @@ public interface ServicoRepository extends CrudRepository<Servico, Integer>{
 
 	@Query("FROM Servico c " 
 			+ "WHERE nome = :nome")
-	Page<Cliente> findAll(@Param("nome") String nome, Pageable Pageable);
+	Page<Servico> findAll(@Param("nome") String nome, Pageable Pageable);
 	
 }
