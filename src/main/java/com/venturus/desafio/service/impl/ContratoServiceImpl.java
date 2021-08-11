@@ -33,11 +33,13 @@ public class ContratoServiceImpl implements ContratoService {
 	@Override
 	public Optional<Contrato> update(Contrato contrato) {
 
-		return contratoRepository.findById(contrato.getId()).map(param -> {
-			param.setNumero(contrato.getNumero());
-			param.setVigenciaMes(contrato.getVigenciaMes());
-			param.setCliente(contrato.getCliente());
-			param.setServico(contrato.getServico());
+		return contratoRepository
+				.findById(contrato.getId())
+				.map(param -> {
+					param.setNumero(contrato.getNumero());
+					param.setVigenciaMes(contrato.getVigenciaMes());
+					param.setCliente(contrato.getCliente());
+					param.setServico(contrato.getServico());
 			return contratoRepository.save(param);
 		});
 	}

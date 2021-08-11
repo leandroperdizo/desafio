@@ -34,9 +34,11 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public Optional<Cliente> update(Cliente cliente) {
 
-		return clienteRepository.findById(cliente.getId()).map(param -> {
-			param.setNome(cliente.getNome());
-			param.setCnpj(cliente.getCnpj());
+		return clienteRepository
+				.findById(cliente.getId())
+				.map(param -> {			
+					param.setNome(cliente.getNome() == null ? param.getNome() : cliente.getNome());
+					param.setCnpj(cliente.getCnpj() == null ? param.getCnpj() : cliente.getCnpj());
 			return clienteRepository.save(param);
 		});
 	}

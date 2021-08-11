@@ -6,13 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.venturus.desafio.entity.Cliente;
 import com.venturus.desafio.entity.Contrato;
 
 @Repository
 public interface ContratoRepository extends CrudRepository<Contrato, Integer>{
 
-	@Query("FROM Cliente c "
-			+ "WHERE cpf = :cpf OR nome like '%:nome%' OR dataNascimento like '%:dataNascimento%'")
-	Page<Contrato> findAll(@Param("nome") String nome, Pageable Pageable);
+	@Query("FROM Contrato c " 
+			+ "WHERE nome = :cnpj")
+	Page<Cliente> findAll(@Param("cnpj") String cnpj, Pageable Pageable);
 	
 }
