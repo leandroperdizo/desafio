@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("contrato")
+@RequestMapping("/contrato")
 public class ContratoController {
 
 	@Autowired
@@ -38,7 +38,7 @@ public class ContratoController {
 	 */
 	@ApiOperation("Find all contracts")
 	@GetMapping
-	public ResponseEntity<?> findAll(@RequestParam(value = "cnpj", required = false) String cnpj,
+	public ResponseEntity<?> findAll(@RequestParam(value = "cnpj", required = true) String cnpj,
 			@RequestParam(value = "page", required = true) Integer page,
 			@RequestParam(value = "size", required = true) Integer size) {
 

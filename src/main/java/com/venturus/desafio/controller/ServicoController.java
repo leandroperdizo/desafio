@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("servico")
+@RequestMapping("/servico")
 public class ServicoController {
 
 	@Autowired
@@ -34,7 +34,7 @@ public class ServicoController {
 	 */
 	@ApiOperation("Find all services")
 	@GetMapping
-	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = false) String nome, 
+	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = true) String nome, 
 			@RequestParam (value = "page", required = true) Integer page, 
 			@RequestParam(value = "size", required = true) Integer size) {
 

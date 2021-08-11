@@ -36,7 +36,7 @@ public class ClienteController {
 	 */
 	@ApiOperation("Find all clients")
 	@GetMapping
-	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = false) String nome,
+	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = true) String nome,
 			@RequestParam(value = "page", required = true) Integer page,
 			@RequestParam(value = "size", required = true) Integer size) {
 
