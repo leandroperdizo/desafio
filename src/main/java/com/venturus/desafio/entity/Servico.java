@@ -13,15 +13,21 @@ import javax.persistence.Table;
 public class Servico implements Serializable{
 
 	/**
-	 * 
+	 * Serial Version ID 
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Id 
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Integer id;
 
+	/**
+	 * Nome 
+	 */
 	@Column(name = "nome")
 	private String nome;
 

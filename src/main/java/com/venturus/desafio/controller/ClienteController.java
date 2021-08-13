@@ -25,7 +25,7 @@ public class ClienteController {
 	ClienteService clienteService;
 
 	/**
-	 * Find all clients
+	 * Buscar clientes 
 	 * 
 	 * @param id
 	 * @param nome
@@ -34,7 +34,7 @@ public class ClienteController {
 	 * @param size
 	 * @return
 	 */
-	@ApiOperation("Find all clients")
+	@ApiOperation("Buscar clientes")
 	@GetMapping
 	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = true) String nome,
 			@RequestParam(value = "page", required = true) Integer page,
@@ -44,12 +44,12 @@ public class ClienteController {
 	}
 
 	/**
-	 * Create client
+	 * Salvar cliente 
 	 * 
 	 * @param cliente
 	 * @return
 	 */
-	@ApiOperation("Create client")
+	@ApiOperation("Salvar cliente")
 	@PostMapping
 	public ResponseEntity<?> save(@RequestBody Cliente cliente) {
 
@@ -58,12 +58,12 @@ public class ClienteController {
 	}
 
 	/**
-	 * Update client
+	 * Atualizar cliente 
 	 * 
 	 * @param cliente
 	 * @return
 	 */
-	@ApiOperation("Update client")
+	@ApiOperation("Atualizar cliente")
 	@PutMapping
 	public ResponseEntity<Optional<Cliente>> update(@RequestBody Cliente cliente) {
 
@@ -72,11 +72,11 @@ public class ClienteController {
 	}
 
 	/**
-	 * Delete client
+	 * Deletar cliente 
 	 * 
 	 * @param cliente
 	 */
-	@ApiOperation("Delete client")
+	@ApiOperation("Deletar cliente")
 	@DeleteMapping
 	public void delete(@RequestBody Cliente cliente) {
 

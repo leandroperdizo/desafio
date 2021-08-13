@@ -13,27 +13,42 @@ import javax.persistence.Table;
 public class Contrato implements Serializable {
 
 	/**
-	 * 
+	 * Serial Version ID
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Id
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Integer id;
 
+	/**
+	 * Numero
+	 */
 	@Column(name = "numero")
 	private Long numero;
 
+	/**
+	 * Vigencia mes
+	 */
 	@Column(name = "vigenciaMes")
 	private Integer vigenciaMes;
 
+	/**
+	 * Id Cliente
+	 */
 	@Column(name = "idCliente")
 	private Integer idCliente;
 
+	/**
+	 * Id Servico
+	 */
 	@Column(name = "idServico")
-	private Integer idServico; 
-	
+	private Integer idServico;
+
 	private String cnpj;
 
 	public Integer getId() {

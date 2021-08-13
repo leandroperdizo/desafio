@@ -25,7 +25,7 @@ public class ContratoController {
 	ContratoService contratoService;
 
 	/**
-	 * Find all contracts
+	 * Buscar contratos 
 	 * 
 	 * @param id
 	 * @param numero
@@ -36,7 +36,7 @@ public class ContratoController {
 	 * @param size
 	 * @return
 	 */
-	@ApiOperation("Find all contracts")
+	@ApiOperation("Buscar contratos")
 	@GetMapping
 	public ResponseEntity<?> findAll(@RequestParam(value = "cnpj", required = true) String cnpj,
 			@RequestParam(value = "page", required = true) Integer page,
@@ -46,12 +46,12 @@ public class ContratoController {
 	}
 
 	/**
-	 * Create contract
+	 * Salvar contrato 
 	 * 
-	 * @param contract
+	 * @param contrato
 	 * @return
 	 */
-	@ApiOperation("Create contract")
+	@ApiOperation("Salvar contrato")
 	@PostMapping
 	public ResponseEntity<?> save(@RequestBody Contrato contrato) {
 
@@ -60,12 +60,12 @@ public class ContratoController {
 	}
 
 	/**
-	 * Update contract
+	 * Atualizar contrato 
 	 * 
-	 * @param contract
+	 * @param contrato
 	 * @return
 	 */
-	@ApiOperation("Update contract")
+	@ApiOperation("Atualizar contrato")
 	@PutMapping
 	public ResponseEntity<Optional<Contrato>> update(@RequestBody Contrato contrato) {
 
@@ -74,11 +74,11 @@ public class ContratoController {
 	}
 
 	/**
-	 * Delete contract
+	 * Deletar contrato 
 	 * 
-	 * @param contract
+	 * @param contrato
 	 */
-	@ApiOperation("Delete contract")
+	@ApiOperation("Deletar contrato")
 	@DeleteMapping
 	public void delete(@RequestBody Contrato contrato) {
 

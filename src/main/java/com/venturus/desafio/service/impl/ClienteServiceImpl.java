@@ -16,6 +16,9 @@ public class ClienteServiceImpl implements ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
+	/**
+	 * Buscar clientes 
+	 */
 	@Override
 	public Page<Cliente> findAll(String nome, Integer page, Integer size) {
 
@@ -23,6 +26,9 @@ public class ClienteServiceImpl implements ClienteService {
 		return clienteRepository.findAll(nome, pageRequest);
 	}
 
+	/**
+	 * Salvar cliente 
+	 */
 	@Override
 	public Cliente save(Cliente cliente) {
 
@@ -31,6 +37,9 @@ public class ClienteServiceImpl implements ClienteService {
 				.map(param -> clienteRepository.save(cliente)).orElseGet(() -> new Cliente());
 	}
 
+	/**
+	 * Atualizar cliente 
+	 */
 	@Override
 	public Optional<Cliente> update(Cliente cliente) {
 
@@ -43,6 +52,9 @@ public class ClienteServiceImpl implements ClienteService {
 		});
 	}
 
+	/**
+	 * Deletar cliente 
+	 */
 	@Override
 	public void delete(Cliente cliente) {
 

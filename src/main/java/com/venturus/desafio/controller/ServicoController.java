@@ -25,14 +25,14 @@ public class ServicoController {
 	ServicoService servicoService;
 
 	/**
-	 * Find all services 
+	 * Buscar Servicos 
 	 * @param id
 	 * @param nome
 	 * @param page
 	 * @param size
 	 * @return
 	 */
-	@ApiOperation("Find all services")
+	@ApiOperation("Buscar servicos")
 	@GetMapping
 	public ResponseEntity<?> findAll(@RequestParam(value = "nome", required = true) String nome, 
 			@RequestParam (value = "page", required = true) Integer page, 
@@ -42,11 +42,11 @@ public class ServicoController {
 	}
 
 	/**
-	 * Create client 
-	 * @param cliente
+	 * Salvar servico 
+	 * @param servico
 	 * @return
 	 */
-	@ApiOperation("Create client")
+	@ApiOperation("Salvar servico")
 	@PostMapping
 	public ResponseEntity<?> save(@RequestBody Servico servico) {
 		
@@ -57,11 +57,11 @@ public class ServicoController {
 	}
 
 	/**
-	 * Update service 
-	 * @param service 
+	 * Atualizar servico 
+	 * @param servico
 	 * @return
 	 */
-	@ApiOperation("Update service")
+	@ApiOperation("Deletar servico")
 	@PutMapping
 	public ResponseEntity<Optional<Servico>> update(@RequestBody Servico servico) {
 
@@ -70,10 +70,10 @@ public class ServicoController {
 	}
 
 	/**
-	 * Delete service  
-	 * @param service 
+	 * Deletar servico 
+	 * @param servico
 	 */
-	@ApiOperation("Delete service")
+	@ApiOperation("Deletar servico")
 	@DeleteMapping
 	public void delete(@RequestBody Servico servico) {
 		

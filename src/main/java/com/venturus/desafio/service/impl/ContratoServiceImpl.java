@@ -19,7 +19,7 @@ public class ContratoServiceImpl implements ContratoService {
 	@Override
 	public Page<Contrato> findAll(String cnpj, Integer page, Integer size) {
 
-		PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "nome");
+		PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "idCliente");
 		return contratoRepository.findAll(cnpj, pageRequest);
 	}
 

@@ -98,6 +98,14 @@ class ContratoTest {
 	@AfterAll
 	static void tearDown() {
 
+		cliente = null;
+		clienteAlt = null;
+		clienteDelet = null; 
+		
+		servico = null;
+		servicoAlt = null;
+		servicoDelet = null; 
+		
 		contrato = null;
 		contratoAlt = null;
 		contratoDelet = null;

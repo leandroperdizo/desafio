@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ContratoRepository extends JpaRepository<Contrato, Integer>{
 
-	@Query("FROM Contrato c, Cliente cli " 
+	@Query("SELECT c FROM Contrato c, Cliente cli " 
 			+ "WHERE c.idCliente = cli.id AND cli.cnpj = :cnpj")
 	Page<Contrato> findAll(@Param("cnpj") String cnpj, Pageable Pageable); 
 	
