@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest
-class ClienteTest {
+class ServicoTest2 {
 
 	@Resource
 	ClienteService clienteService;
