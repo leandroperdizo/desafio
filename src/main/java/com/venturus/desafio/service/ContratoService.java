@@ -8,7 +8,7 @@ import com.venturus.desafio.entity.Contrato;
 @Component
 public interface ContratoService {
 
-	public Page<Contrato> findAll(String nome, Integer page, Integer size); 
+	public Page<Contrato> findAll(String cnpj, Integer page, Integer size); 
 	
 	public Contrato save(Contrato contrato); 
 	

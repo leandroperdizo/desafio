@@ -32,7 +32,9 @@ public class Contrato implements Serializable {
 	private Integer idCliente;
 
 	@Column(name = "idServico")
-	private Integer idServico;
+	private Integer idServico; 
+	
+	private String cnpj;
 
 	public Integer getId() {
 		return id;
@@ -72,6 +74,14 @@ public class Contrato implements Serializable {
 
 	public void setIdServico(Integer idServico) {
 		this.idServico = idServico;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 }

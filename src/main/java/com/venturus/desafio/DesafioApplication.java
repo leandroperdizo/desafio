@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(scanBasePackages = { "com.venturus.*" })
-@ComponentScan(basePackages = "com.*")
-@EntityScan(basePackages = "com.*")
+@ComponentScan(basePackages = "com.venturus.desafio.servico")
+@EntityScan(basePackages = "com.venturus.desafio.entity")
 public class DesafioApplication {
 
 	public static void main(String[] args) {

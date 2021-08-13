@@ -1,8 +1,8 @@
 package com.venturus.desafio;
 
 import com.venturus.desafio.config.VenturusConfig;
-import com.venturus.desafio.entity.Cliente;
-import com.venturus.desafio.service.ClienteService;
+import com.venturus.desafio.entity.Servico;
+import com.venturus.desafio.service.ServicoService;
 import javax.annotation.Resource;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,75 +18,73 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
 import static org.junit.Assert.assertNotNull;
 
-@SpringBootTest
+@SpringBootTest 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ComponentScan(basePackages = "com.venturus.*")
 @EntityScan(basePackages = "com.venturus.desafio.entity")
-@ContextConfiguration(classes = { VenturusConfig.class }, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = { VenturusConfig.class }, loader = AnnotationConfigContextLoader.class) 
 @Transactional
-class ClienteTest {
+class ServicoTest {
 
 	@Resource
-	ClienteService clienteService;
+	ServicoService servicoService;
 
-	static Cliente cliente = null;
+	static Servico servico = null;
 
-	static Cliente clienteAlt = null;
-
-	static Cliente clienteDelet = null;
+	static Servico servicoAlt = null; 
+	
+	static Servico servicoDelet = null;
 
 	@BeforeAll
 	static void setup() {
 
-		cliente = new Cliente();
-		cliente.setNome("clientenovo");
-		cliente.setCnpj("7687678670");
+		servico = new Servico();
+		servico.setNome("clientenovo");
 
-		clienteAlt = new Cliente();
-		clienteAlt.setNome("clientenovoalt");
-		clienteAlt.setCnpj("7687678678");
-
-		clienteDelet = new Cliente();
-		clienteDelet.setNome("clientenovodelet");
-		clienteDelet.setCnpj("7687678677");
+		servicoAlt = new Servico();
+		servicoAlt.setNome("clientenovoalt");
+		
+		servicoDelet = new Servico();
+		servicoDelet.setNome("clientenovodelet");
 	}
 
 	@AfterAll
 	static void tearDown() {
 
-		cliente = null;
-		clienteAlt = null;
-		clienteDelet = null;
+		servico = null;
+		servicoAlt = null;
+		servicoDelet = null;
 	}
 
-	@DisplayName("Salvar cliente com sucesso")
+	@DisplayName("Salvar serviço com sucesso")
 	@Test
 	void testSalvarCliente() {
 
-		assertNotNull(clienteService.save(cliente));
-		clienteService.delete(cliente);
+		assertNotNull(servicoService.save(servico));
+		servicoService.delete(servico);
 	}
 
-	@DisplayName("Atualizar cliente com sucesso")
+	@DisplayName("Atualizar serviço com sucesso")
 	@Test
 	void testAtualizarCliente() {
-		Cliente cli = clienteService.save(clienteAlt);
+		Servico cli = servicoService.save(servicoAlt);
 		cli.setNome("clienteNome");
-		assertNotNull(clienteService.update(cli));
-		clienteService.delete(clienteAlt);
+		assertNotNull(servicoService.update(cli));
+		servicoService.delete(servicoAlt);
 	}
 
-	@DisplayName("Buscar clientes")
+	@DisplayName("Buscar serviços")
 	@Test
 	void testBuscarTodosOsClientes() {
 
-		assertNotNull(clienteService.findAll(clienteAlt.getNome(), 0, 10));
+		assertNotNull(servicoService.findAll(servicoAlt.getNome(), 0, 10));
 	}
 
-	@DisplayName("Deletar cliente")
+	@DisplayName("Deletar serviço")
 	@Test
 	void testDeletarCliente() {
-		Cliente cli = clienteService.save(clienteDelet);
-		clienteService.delete(cli);
+		
+		Servico cli = servicoService.save(servicoDelet);
+		servicoService.delete(cli);
 	}
 }
