@@ -1,7 +1,8 @@
-package com.venturus.desafio.controller;
+package com.diazero.gestao.controller;
 
-import com.venturus.desafio.entity.Cliente;
-import com.venturus.desafio.service.ClienteService;
+import com.diazero.gestao.entity.Incidente;
+import com.diazero.gestao.service.IncidenteService;
+
 import io.swagger.annotations.ApiOperation;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/cliente")
-public class ClienteController {
+public class IncidenteController {
 
 	@Autowired
-	ClienteService clienteService;
+	IncidenteService clienteService;
 
 	/**
 	 * Buscar clientes 
@@ -40,7 +41,7 @@ public class ClienteController {
 			@RequestParam(value = "page", required = true) Integer page,
 			@RequestParam(value = "size", required = true) Integer size) {
 
-		return new ResponseEntity<Page<Cliente>>(clienteService.findAll(nome, page, size), HttpStatus.OK);
+		return new ResponseEntity<Page<Incidente>>(clienteService.findAll(nome, page, size), HttpStatus.OK);
 	}
 
 	/**
@@ -51,7 +52,7 @@ public class ClienteController {
 	 */
 	@ApiOperation("Salvar cliente")
 	@PostMapping
-	public ResponseEntity<?> save(@RequestBody Cliente cliente) {
+	public ResponseEntity<?> save(@RequestBody Incidente cliente) {
 
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(Optional.of(cliente).map(clienteService::save).orElseThrow());
@@ -65,9 +66,9 @@ public class ClienteController {
 	 */
 	@ApiOperation("Atualizar cliente")
 	@PutMapping
-	public ResponseEntity<Optional<Cliente>> update(@RequestBody Cliente cliente) {
+	public ResponseEntity<Optional<Incidente>> update(@RequestBody Incidente cliente) {
 
-		return new ResponseEntity<Optional<Cliente>>(Optional.of(cliente).map(clienteService::update).orElseThrow(),
+		return new ResponseEntity<Optional<Incidente>>(Optional.of(cliente).map(clienteService::update).orElseThrow(),
 				HttpStatus.OK);
 	}
 
@@ -78,7 +79,7 @@ public class ClienteController {
 	 */
 	@ApiOperation("Deletar cliente")
 	@DeleteMapping
-	public void delete(@RequestBody Cliente cliente) {
+	public void delete(@RequestBody Incidente cliente) {
 
 		clienteService.delete(cliente);
 	}

@@ -1,8 +1,9 @@
 package com.venturus.desafio;
 
-import com.venturus.desafio.config.VenturusConfig;
-import com.venturus.desafio.entity.Cliente;
-import com.venturus.desafio.service.ClienteService;
+import com.diazero.gestao.config.VenturusConfig;
+import com.diazero.gestao.entity.Incidente;
+import com.diazero.gestao.service.IncidenteService;
+
 import javax.annotation.Resource;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -24,31 +25,31 @@ import static org.junit.Assert.assertNotNull;
 @EntityScan(basePackages = "com.venturus.desafio.entity")
 @ContextConfiguration(classes = { VenturusConfig.class }, loader = AnnotationConfigContextLoader.class)
 @Transactional
-class ClienteTest {
+class IncidenteTest {
 
 	@Resource
-	ClienteService clienteService;
+	IncidenteService incidenteService;
 
-	static Cliente cliente = null;
+	static Incidente cliente = null;
 
-	static Cliente clienteAlt = null;
+	static Incidente clienteAlt = null;
 
-	static Cliente clienteDelet = null;
+	static Incidente clienteDelet = null;
 
 	@BeforeAll
 	static void setup() {
 
-		cliente = new Cliente();
-		cliente.setNome("clientenovo");
-		cliente.setCnpj("7687678670");
+		cliente = new Incidente();
+		cliente.setName("clientenovo");
+		cliente.setDescription("7687678670");
 
-		clienteAlt = new Cliente();
-		clienteAlt.setNome("clientenovoalt");
-		clienteAlt.setCnpj("7687678678");
+		clienteAlt = new Incidente();
+		clienteAlt.setName("clientenovoalt");
+		clienteAlt.setDescription("7687678678");
 
-		clienteDelet = new Cliente();
-		clienteDelet.setNome("clientenovodelet");
-		clienteDelet.setCnpj("7687678677");
+		clienteDelet = new Incidente();
+		clienteDelet.setName("clientenovodelet");
+		clienteDelet.setDescription("7687678677");
 	}
 
 	@AfterAll
@@ -63,30 +64,30 @@ class ClienteTest {
 	@Test
 	void testSalvarCliente() {
 
-		assertNotNull(clienteService.save(cliente));
-		clienteService.delete(cliente);
+		assertNotNull(incidenteService.save(cliente));
+		incidenteService.delete(cliente);
 	}
 
 	@DisplayName("Atualizar cliente com sucesso")
 	@Test
 	void testAtualizarCliente() {
-		Cliente cli = clienteService.save(clienteAlt);
-		cli.setNome("clienteNome");
-		assertNotNull(clienteService.update(cli));
-		clienteService.delete(clienteAlt);
+		Incidente cli = incidenteService.save(clienteAlt);
+		cli.setName("clienteNome");
+		assertNotNull(incidenteService.update(cli));
+		incidenteService.delete(clienteAlt);
 	}
 
 	@DisplayName("Buscar clientes")
 	@Test
 	void testBuscarTodosOsClientes() {
 
-		assertNotNull(clienteService.findAll(clienteAlt.getNome(), 0, 10));
+		assertNotNull(incidenteService.findAll(clienteAlt.getName(), 0, 10));
 	}
 
 	@DisplayName("Deletar cliente")
 	@Test
 	void testDeletarCliente() {
-		Cliente cli = clienteService.save(clienteDelet);
-		clienteService.delete(cli);
+		Incidente cli = incidenteService.save(clienteDelet);
+		incidenteService.delete(cli);
 	}
 }

@@ -1,4 +1,4 @@
-package com.venturus.desafio.config;
+package com.diazero.gestao.config;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
